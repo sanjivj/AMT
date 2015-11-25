@@ -1,20 +1,9 @@
+
 if (Meteor.isClient){
    angular.module('socially', ['angular-meteor']);
 
-   angular.module('socially').controller('PartiesListCtrl', ['$scope', function( $scope){
-    $scope.parties = [
-        {
-            'name': 'Dubstep-Free Zone',
-            'description': 'Can we please just for one evening not listen to dubstep?'
-        },
-        {
-            'name': 'All Dubstep all the time!',
-            'description': 'Get it on!'
-        },
-        {
-            'name': 'Savage Lounging',
-            'description': 'Leisure suit required. And only fiercest manners.'
-        }
-    ];
-   }]);
+   angular.module('socially').controller('PartiesListCtrl', function($scope, $meteor){
+    $scope.parties = $meteor.collection('Parties');
+   });
 }
+
